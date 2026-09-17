@@ -50,6 +50,7 @@ model Request {
   status       Status       @default(Open)
   resolution   Resolution?
   refundAmount Decimal?     @db.Decimal(10, 2)
+  isRemoved    Boolean      @default(false)
   notes        RequestNote[]
   createdAt    DateTime     @default(now())
   updatedAt    DateTime     @updatedAt
