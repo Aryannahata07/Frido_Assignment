@@ -97,7 +97,7 @@ export default function RequestDashboard() {
               placeholder="Search reference, customer, or order..." 
               value={search}
               onChange={(e) => { setSearch(e.target.value); setPage(1); }}
-              className="w-full pl-9 pr-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all text-sm"
+              className="w-full pl-9 pr-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all text-sm text-slate-900 bg-white placeholder-slate-400"
             />
           </div>
           
@@ -109,7 +109,7 @@ export default function RequestDashboard() {
             <select 
               value={status}
               onChange={(e) => { setStatus(e.target.value); setPage(1); }}
-              className="px-3 py-2 border border-slate-200 rounded-lg text-sm bg-slate-50 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+              className="px-3 py-2 border border-slate-200 rounded-lg text-sm bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
             >
               <option value="">All Statuses</option>
               <option value="Open">Open</option>
@@ -122,7 +122,7 @@ export default function RequestDashboard() {
             <select 
               value={reason}
               onChange={(e) => { setReason(e.target.value); setPage(1); }}
-              className="px-3 py-2 border border-slate-200 rounded-lg text-sm bg-slate-50 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+              className="px-3 py-2 border border-slate-200 rounded-lg text-sm bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
             >
               <option value="">All Reasons</option>
               <option value="Defective">Defective</option>

@@ -120,7 +120,25 @@ export default function RequestDetailModal({ requestId, onClose, onRefresh }: { 
     );
   }
 
-  if (!request) return null;
+  if (!request) {
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-sm">
+        <div className="bg-white p-6 rounded-xl shadow-xl max-w-md w-full text-center">
+          <div className="w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <X className="w-6 h-6" />
+          </div>
+          <h3 className="text-lg font-bold text-slate-900 mb-2">Error Loading Request</h3>
+          <p className="text-slate-500 mb-6">{error || 'Could not load request details. Please try again.'}</p>
+          <button 
+            onClick={onClose}
+            className="w-full bg-slate-900 hover:bg-slate-800 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   const isDecided = ['Approved', 'Rejected', 'Completed'].includes(request.status);
 
@@ -201,7 +219,7 @@ export default function RequestDetailModal({ requestId, onClose, onRefresh }: { 
                       value={units}
                       onChange={e => setUnits(e.target.value)}
                       disabled={isDecided}
-                      className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 disabled:bg-slate-50 disabled:text-slate-500"
+                      className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 disabled:bg-slate-50 disabled:text-slate-500 text-slate-900 bg-white"
                     />
                   </div>
                   <div className="space-y-1.5">
@@ -210,7 +228,7 @@ export default function RequestDetailModal({ requestId, onClose, onRefresh }: { 
                       value={reason}
                       onChange={e => setReason(e.target.value)}
                       disabled={isDecided}
-                      className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 disabled:bg-slate-50 disabled:text-slate-500"
+                      className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 disabled:bg-slate-50 disabled:text-slate-500 text-slate-900 bg-white"
                     >
                       <option value="Defective">Defective</option>
                       <option value="WrongItem">Wrong Item</option>
@@ -231,7 +249,7 @@ export default function RequestDetailModal({ requestId, onClose, onRefresh }: { 
                     <select 
                       value={status}
                       onChange={e => setStatus(e.target.value)}
-                      className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
+                      className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 text-slate-900 bg-white"
                     >
                       {allowedStatuses.map(s => <option key={s} value={s}>{s}</option>)}
                     </select>
@@ -243,7 +261,7 @@ export default function RequestDetailModal({ requestId, onClose, onRefresh }: { 
                       value={resolution}
                       onChange={e => setResolution(e.target.value)}
                       disabled={request.status === 'Completed' || request.status === 'Rejected'}
-                      className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 disabled:bg-slate-50 disabled:text-slate-500"
+                      className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 disabled:bg-slate-50 disabled:text-slate-500 text-slate-900 bg-white"
                     >
                       <option value="">None yet</option>
                       <option value="Refund">Refund</option>
@@ -261,7 +279,7 @@ export default function RequestDetailModal({ requestId, onClose, onRefresh }: { 
                         value={refundAmount}
                         onChange={e => setRefundAmount(e.target.value)}
                         disabled={request.status === 'Completed' || request.status === 'Rejected'}
-                        className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 disabled:bg-slate-50 disabled:text-slate-500"
+                        className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 disabled:bg-slate-50 disabled:text-slate-500 text-slate-900 bg-white"
                       />
                     </div>
                   )}
@@ -305,7 +323,7 @@ export default function RequestDetailModal({ requestId, onClose, onRefresh }: { 
                 onChange={e => setNoteContent(e.target.value)}
                 placeholder="Add a note..."
                 rows={3}
-                className="w-full p-2.5 text-sm border border-slate-200 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500/20 mb-2"
+                className="w-full p-2.5 text-sm border border-slate-200 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500/20 mb-2 text-slate-900 bg-white placeholder-slate-400"
               ></textarea>
               <button 
                 onClick={handleAddNote}

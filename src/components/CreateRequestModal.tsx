@@ -113,7 +113,7 @@ export default function CreateRequestModal({ onClose, onSuccess }: CreateRequest
                 value={customerId} 
                 onChange={e => setCustomerId(e.target.value)}
                 required
-                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-slate-900 bg-white"
               >
                 <option value="">Select a customer...</option>
                 {customers.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
@@ -127,7 +127,7 @@ export default function CreateRequestModal({ onClose, onSuccess }: CreateRequest
                 onChange={e => setOrderId(e.target.value)}
                 required
                 disabled={!customerId}
-                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 disabled:bg-slate-50 disabled:text-slate-400"
+                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 disabled:bg-slate-50 disabled:text-slate-400 text-slate-900 bg-white"
               >
                 <option value="">{customerId ? "Select an order..." : "Select a customer first"}</option>
                 {orders.map(o => <option key={o.id} value={o.id}>{o.orderNumber}</option>)}
@@ -140,7 +140,7 @@ export default function CreateRequestModal({ onClose, onSuccess }: CreateRequest
                 value={itemId} 
                 onChange={e => setItemId(e.target.value)}
                 required
-                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-slate-900 bg-white"
               >
                 <option value="">Select an item...</option>
                 {items.map(i => <option key={i.id} value={i.id}>{i.name} (${i.price})</option>)}
@@ -156,7 +156,7 @@ export default function CreateRequestModal({ onClose, onSuccess }: CreateRequest
                   value={units}
                   onChange={e => setUnits(e.target.value)}
                   required
-                  className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-slate-900 bg-white"
                 />
               </div>
               <div className="space-y-1.5">
@@ -165,7 +165,7 @@ export default function CreateRequestModal({ onClose, onSuccess }: CreateRequest
                   value={reason} 
                   onChange={e => setReason(e.target.value)}
                   required
-                  className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-slate-900 bg-white"
                 >
                   <option value="Defective">Defective</option>
                   <option value="WrongItem">Wrong Item</option>
@@ -182,7 +182,7 @@ export default function CreateRequestModal({ onClose, onSuccess }: CreateRequest
                 value={notes}
                 onChange={e => setNotes(e.target.value)}
                 placeholder="Add any helpful context..."
-                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 resize-none"
+                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 resize-none text-slate-900 bg-white placeholder-slate-400"
               ></textarea>
             </div>
 
